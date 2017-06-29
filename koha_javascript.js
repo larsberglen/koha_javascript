@@ -107,6 +107,22 @@ $(document).ready(function() {
       $('#shipmentcost_budgetid').parent().hide();
 
     }
+    //Detect invoice page
+    if ($('#acq_invoices').length) {
+      // hide colums on invoice page
+      var table = $('#acq_invoices').find('#resultst');
+      table.find('th').eq(4).hide();
+      var numChildren = table.find('td').length;
+      //Dont really like this solution, maybe check index of the TH instead...
+      var td = 4;
+      var tds = table.find('td');
+
+      while (td < numChildren) {
+
+        tds.eq(td).hide();
+        td += 10;
+      }
+    }
 
   });
 })(jQuery);
